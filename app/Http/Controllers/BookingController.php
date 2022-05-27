@@ -39,7 +39,7 @@ class BookingController extends Controller
     public function store(StoreBookingRequest $request, BookingServiceInterface $booked)
     {
         $data=$request->validated();
-        $booked->StoreBooking($data);
+        $booked->storeBooking($data);
         return view('home',['posts'=>Post::all()]);
     }
 

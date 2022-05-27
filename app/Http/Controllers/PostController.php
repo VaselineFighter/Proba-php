@@ -38,7 +38,7 @@ class PostController extends Controller
     public function store(StorePostRequest $request, PostServiceInterface $post)
     {
         $data=$request->validated();
-        $post->StorePost($data);
+        $post->storePost($data);
         return redirect()->route('home');
     }
 

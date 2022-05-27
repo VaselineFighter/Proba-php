@@ -4,5 +4,5 @@ namespace App\Services\Post;
 
 Interface PostServiceInterface
 {
-    public function StorePost($data);
+    public function storePost($data);
 }

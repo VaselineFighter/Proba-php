@@ -4,5 +4,5 @@ namespace App\Services\Booking;
 
 Interface BookingServiceInterface
 {
-    public function StoreBooking($data);
+    public function storeBooking($data);
 }

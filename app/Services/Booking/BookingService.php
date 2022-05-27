@@ -5,7 +5,7 @@ use App\Models\Booking;
 
 class BookingService implements BookingServiceInterface
 {
-    public function StoreBooking($data)
+    public function storeBooking($data)
     {
         $booked=$data['booked'];   
         foreach ($booked as $book){

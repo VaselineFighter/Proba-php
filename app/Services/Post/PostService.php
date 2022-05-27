@@ -4,7 +4,7 @@ use App\Models\Post;
 
 class PostService implements PostServiceInterface
 {
-    public function StorePost($data)
+    public function storePost($data)
     {
         $post=Post::Create($data);
         return $data;
