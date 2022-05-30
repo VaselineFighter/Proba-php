@@ -5371,22 +5371,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  name: 'App',
+  data: function data() {
+    return {
+      connection: null
+    };
+  },
+  created: function created() {
+    console.log("Starting connection to WebSocket Server");
+    this.connection = new WebSocket("ws://10.3.65.40:8080");
+
+    this.connection.onmessage = function (event) {
+      var bloked = JSON.parse(event['data']);
+      console.log(event['data']);
+      bloked.forEach(function (element) {
+        var disable = document.getElementById(element).disabled = true;
+        console.log(disable);
+      });
+    };
+
+    this.connection.onopen = function (event) {
+      console.log("Successfully connected to the echo websocket server...");
+    };
   }
 });
 
@@ -27999,32 +28006,9 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div")
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              ),
-            ]),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

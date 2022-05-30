@@ -7,7 +7,7 @@ class BookingService implements BookingServiceInterface
 {
     public function storeBooking($data)
     {
-        $booked=$data['booked'];   
+        $booked = $data['booked'];   
         foreach ($booked as $book){
             Booking::firstOrCreate([
                 'user_id'=>$data['user_id'],
